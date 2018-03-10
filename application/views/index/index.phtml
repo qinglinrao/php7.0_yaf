@@ -67,7 +67,7 @@ var demo = new Vue({
 
   filters: {
     truncate: function (v) {
-      var newline = v.indexOf('\n')
+      var newline = v.indexOf('\n');
       return newline > 0 ? v.slice(0, newline) : v
     },
     formatDate: function (v) {
@@ -77,13 +77,13 @@ var demo = new Vue({
 
   methods: {
     fetchData: function () {
-      var xhr = new XMLHttpRequest()
-      var self = this
-      xhr.open('GET', apiURL + self.currentBranch)
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET', apiURL + self.currentBranch);
       xhr.onload = function () {
-        self.commits = JSON.parse(xhr.responseText)
+        self.commits = JSON.parse(xhr.responseText);
         console.log(self.commits[0].html_url)
-      }
+      };
       xhr.send()
     }
   }
